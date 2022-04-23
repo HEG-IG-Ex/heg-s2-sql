@@ -1,0 +1,60 @@
+DROP cie_constructeur CASCADE CONSTRAINT;
+
+DROP cie_modele CASCADE CONSTRAINT;
+
+DROP cie_appareil CASCADE CONSTRAINT;
+
+DROP cie_vol CASCADE CONSTRAINT;
+
+DROP cie_aeroport CASCADE CONSTRAINT;
+
+DROP cie_occupation CASCADE CONSTRAINT;
+
+DROP cie_role CASCADE CONSTRAINT;
+
+DROP cie_employe CASCADE CONSTRAINT;
+
+DROP cie_classe CASCADE CONSTRAINT;
+
+DROP cie_reservation CASCADE CONSTRAINT;
+
+DROP cie_passager CASCADE CONSTRAINT;
+
+DROP cie_bagage CASCADE CONSTRAINT;
+
+CREATE TABLE cie_constructeur (
+    con_id NUMBER(5) CONSTRAINT pk_con_id PRIMARY KEY,
+    con_nom CHAR(40)
+);
+
+CREATE TABLE cie_modele (
+    mod_code CHAR(10) CONSTRAINT pk_mod_code PRIMARY KEY,
+    mod_nom CHAR(25),
+    mod_prix_catalogue NUMBER,
+    mod_portee_max NUMBER(6),
+    mod_charge_max NUMBER(5),
+    mod_container_max NUMBER(5),
+    mod_passager_max NUMBER (5),
+    mod_con_id NUMBER(5)
+);
+
+CREATE TABLE cie_appareil (
+    app_immatriculation CHAR(10) CONSTRAINT pk_app_immatriculation PRIMARY KEY,
+    app_mise_en_service DATE,
+    app_achat DATE,
+    app_mod_code CHAR(10)
+);
+
+CREATE TABLE cie_vol (
+    vol_numero CHAR(10) CONSTRAINT pk_vol_numero PRIMARY KEY,
+    vol_horaire DATE,
+    vol_date DATE,
+    vol_aer_code_dest CHAR(10),
+    vol_aer_code_depart CHAR(10),
+    vol_app_immatriculation CHAR(10)
+);
+
+CREATE TABLE cie_aeroport (
+    aer_code CHAR(10) CONSTRAINT pk_aer_code PRIMARY KEY,
+    aer_nom CHAR(25),
+);
