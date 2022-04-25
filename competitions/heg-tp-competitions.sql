@@ -23,13 +23,13 @@ CREATE TABLE com_competition (
 );
 
 -- Personnes
-CREATE TABLE com_personne (
+CREATE TABLE com_personne (     
    per_id       NUMBER(5) NOT NULL CONSTRAINT pk_com_personne PRIMARY KEY,
-   per_nom      CHAR(40) NOT NULL,
-   per_prenom   CHAR(40) NOT NULL,
+   per_nom      VARCHAR(40) NOT NULL,
+   per_prenom   VARCHAR(40) NOT NULL,
    per_sexe     CHAR(1) CONSTRAINT ch_sexe CHECK(per_sexe IN ('M', 'F')),
-   per_email    CHAR(80),
-   per_ville    CHAR(40) DEFAULT 'Genève',
+   per_email    VARCHAR(80),
+   per_ville    VARCHAR(40) DEFAULT 'Genève',
    per_clu_id   NUMBER(5),
    
    CONSTRAINT uk_per_nom_prenom UNIQUE (per_nom, per_prenom)
@@ -39,9 +39,9 @@ CREATE TABLE com_personne (
 CREATE TABLE com_club (
    clu_id       NUMBER(5) NOT NULL CONSTRAINT pk_clu_id PRIMARY KEY,
    clu_nom      CHAR(40) NOT NULL CONSTRAINT uk_clu_nom UNIQUE,
-   clu_ville    CHAR(40) NOT NULL,
+   clu_ville    CHAR(40),
    clu_email    CHAR(40),
-   clu_per_id   NUMBER(5) DEFAULT NULL,
+   clu_per_id   NUMBER(5),
    
    CONSTRAINT fk_club_personne FOREIGN KEY (clu_per_id) REFERENCES com_personne (per_id)
 );
@@ -55,7 +55,6 @@ CREATE TABLE com_inscription (
    CONSTRAINT fk_inscription_personne FOREIGN KEY (ins_per_id) REFERENCES com_personne (per_id),
    CONSTRAINT fk_inscription_competition FOREIGN KEY (ins_com_id) REFERENCES com_competition (com_id)     
 );
-
 
 
 /*======================================

@@ -1,6 +1,13 @@
 /*********************************************************
     DROP
 **********************************************************/
+-- TRIGGER
+DROP TRIGGER trg_con_id;
+DROP TRIGGER trg_leg_id;
+DROP TRIGGER trg_rol_id;
+DROP TRIGGER trg_emp_id;
+DROP TRIGGER trg_cla_id;
+DROP TRIGGER trg_bag_id;
 
 -- TABLE
 DROP TABLE cie_constructeur CASCADE CONSTRAINT;
@@ -25,14 +32,6 @@ DROP SEQUENCE sq_cie_employe;
 DROP SEQUENCE sq_cie_classe;
 DROP SEQUENCE sq_cie_baggage;
 
--- TRIGGER
-DROP TRIGGER trg_con_id;
-DROP TRIGGER trg_leg_id;
-DROP TRIGGER trg_rol_id;
-DROP TRIGGER trg_emp_id;
-DROP TRIGGER trg_cla_id;
-DROP TRIGGER trg_bag_id;
-
 
 /*********************************************************
     CREATE TABLE
@@ -41,7 +40,9 @@ DROP TRIGGER trg_bag_id;
 -- constructeur
 CREATE TABLE cie_constructeur (
     con_id NUMBER,
-    con_nom VARCHAR(25) NOT NULL UNIQUE,
+    con_nom VARCHAR(25) 
+            CONSTRAINT nn_con_nom NOT NULL 
+            CONSTRAINT uk_con_nom UNIQUE,
     CONSTRAINT pk_cie_constructeur PRIMARY KEY (con_id)
 );
 
