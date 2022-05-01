@@ -59,6 +59,7 @@ INSERT INTO heg_club VALUES (3, 'Traînes-Savates BDD', 'ts.bdd@heg.ch',  'Lausan
 INSERT INTO heg_club VALUES (4, 'HEG-SwimmingClub',    'swimm@heg.ch',   'genève',   NULL);
 INSERT INTO heg_club VALUES (5, 'HEG-PédaleClub',      'velo@heg.ch',    'Genève',   NULL);
 INSERT INTO heg_club VALUES (6, 'Aviron Club HEG',     'aviron@heg.ch',  'Lausanne', NULL);
+COMMIT;
 
 INSERT INTO heg_personne VALUES ( 1, 'Bon',        'Jean',      'M', 'bj@heg.ch', 'Genève', 3);
 INSERT INTO heg_personne VALUES ( 2, 'Remord',     'Yves',      'M', 'ry@heg.ch', 'Genève', 1);
@@ -92,6 +93,7 @@ INSERT INTO heg_personne VALUES (29, 'Hitmieux',   'Elmer',     'M', 'he@heg.ch'
 INSERT INTO heg_personne VALUES (30, 'Ition',      'Aude',      'F', 'ia@Hem.ch', 'Genève', 1);
 INSERT INTO heg_personne VALUES (31, 'Tim',        'Vincent',   'M', 'tv@heg.ch', 'Genève', 3);
 INSERT INTO heg_personne VALUES (32, 'Atan',       'Charles',   'M', 'ac@eig.ch', 'Lausanne', 1);
+COMMIT;
 
 -- indication des présidents de club
 UPDATE heg_club SET clu_per_no =  3 WHERE clu_no = 1;
